@@ -494,6 +494,7 @@
         [Tool showCustomHUD:@"请正确选择您的住址" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
         return;
     }
+    NSLog(houseNumId);
     RegisterStep2View *register2 = [[RegisterStep2View alloc] init];
     register2.houseNumId = houseNumId;
     [self.navigationController pushViewController:register2 animated:YES];

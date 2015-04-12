@@ -9,7 +9,7 @@
 #import "CommodityClassView.h"
 #import "CommodityClassCell.h"
 #import "CommodityClass.h"
-#import "CommodityClassReusableView.h"
+//#import "CommodityClassReusableView.h"
 #import "CommDetailView.h"
 #import "CommodityView.h"
 #import "ActivityDetailView.h"
@@ -37,7 +37,7 @@
     self.collectionView.dataSource = self;
     self.collectionView.backgroundColor = [UIColor clearColor];
     [self.collectionView registerClass:[CommodityClassCell class] forCellWithReuseIdentifier:CommodityClassCellIdentifier];
-    [self.collectionView registerClass:[CommodityClassReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CommodityClassHead"];
+//    [self.collectionView registerClass:[CommodityClassReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CommodityClassHead"];
     
     //添加的代码
     if (_refreshHeaderView == nil) {
@@ -48,10 +48,11 @@
     }
     [_refreshHeaderView refreshLastUpdatedDate];
     
-    [self refreshExpressData];
+    [self refreshClassData];
+    [self getADVData];
 }
 
-- (void)refreshExpressData
+- (void)refreshClassData
 {
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
@@ -222,7 +223,7 @@
 {
     if ([UserModel Instance].isNetworkRunning) {
         isLoadOver = NO;
-        [self refreshExpressData];
+        [self refreshClassData];
     }
 }
 
@@ -246,16 +247,16 @@
 }
 
 // 返回headview或footview
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *reusableview = nil;
-    if (kind == UICollectionElementKindSectionHeader){
-        CommodityClassReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CommodityClassHead" forIndexPath:indexPath];
-        reusableview = headerView;
-        self.advIv = headerView.advIv;
-        [self getADVData];
-    }
-    return reusableview;
-}
+//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+//    UICollectionReusableView *reusableview = nil;
+//    if (kind == UICollectionElementKindSectionHeader){
+//        CommodityClassReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CommodityClassHead" forIndexPath:indexPath];
+//        reusableview = headerView;
+//        self.advIv = headerView.advIv;
+//        [self getADVData];
+//    }
+//    return reusableview;
+//}
 
 - (void)getADVData
 {

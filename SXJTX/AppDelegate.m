@@ -104,7 +104,7 @@ BMKMapManager* _mapManager;
     NSString *directory = [NSString stringWithFormat:@"%@/cfg", [paths objectAtIndex:0]];
     NSURL *dbURLPath = [NSURL fileURLWithPath:directory];
     [self addSkipBackupAttributeToItemAtURL:dbURLPath];
-    [self addSkipBackupAttributeToPath:directory];
+//    [self addSkipBackupAttributeToPath:directory];
     
     //集成信鸽start
     [XGPush startApp:2200088901 appKey:@"IR4CZS5593CQ"];
@@ -480,10 +480,10 @@ BMKMapManager* _mapManager;
     return success;
 }
 
-- (void)addSkipBackupAttributeToPath:(NSString*)path {
-    u_int8_t b = 1;
-    setxattr([path fileSystemRepresentation], "com.apple.MobileBackup", &b, 1, 0, 0);
-}
+//- (void)addSkipBackupAttributeToPath:(NSString*)path {
+//    u_int8_t b = 1;
+//    setxattr([path fileSystemRepresentation], "com.apple.MobileBackup", &b, 1, 0, 0);
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

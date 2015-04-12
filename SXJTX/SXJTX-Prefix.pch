@@ -39,7 +39,7 @@
 #define Appkey @"10000001"
 #define AppSecret @"Hr54hiz7"
 
-//#define api_base_url @"http://192.168.1.12:8080/homesky_api/"
+//#define api_base_url @"http://192.168.1.103:8080/homesky_api/"
 #define api_base_url @"http://115.28.61.205:80/homesky_api/"
 //登录接口
 #define api_login @"regUser/login.htm"
